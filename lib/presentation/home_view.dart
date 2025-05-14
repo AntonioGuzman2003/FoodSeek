@@ -1,8 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:foodseek/services/navigation_service.dart';
-
+import 'package:food_seek/services/navigation_service.dart';
 
 class HomeView extends StatelessWidget {
   final List<CameraDescription> cameras;

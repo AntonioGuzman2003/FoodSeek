@@ -22,7 +22,7 @@ class LocalStorageService {
       
       return localPath;
     } catch (e) {
-      print("Error guardando imagen localmente: $e");
+      print("Error guardando imagen en el dispositivo: $e");
       throw e;
     }
   }

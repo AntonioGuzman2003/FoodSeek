@@ -1,24 +1,30 @@
-import 'package:flutter/material.dart';
+import 'package:camera/camera.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:camera/camera.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:food_seek/presentation/home_view.dart';
+import 'package:food_seek/services/messages.dart';
+import 'package:food_seek/services/navigation_service.dart';
+import 'package:food_seek/theme/theme.dart';
+import 'package:food_seek/widgets/network_manager.dart';
+import 'package:get/get.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
-
 Future<void> main() async {
-    WidgetsFlutterBinding.ensureInitialized();
-    await Firebase.initializeApp();
-    final cameras = await availableCameras();
-    Get.put(NavigationService(cameras: cameras));
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  final cameras = await availableCameras();
+  Get.put(NavigationService(cameras: cameras));
   runApp(NetworkManager(
-    child: MyApp(
-      cameras: cameras,
-    )));
+      child: MyApp(
+    cameras: cameras,
+  )));
 }
 
 class MyApp extends StatelessWidget {
   final List<CameraDescription> cameras;
-  const MyApp({super.key,required this.cameras});
+  const MyApp({super.key, required this.cameras});
 
   @override
   Widget build(BuildContext context) {
