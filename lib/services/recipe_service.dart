@@ -55,7 +55,7 @@ class RecipeService {
     try {
       String? userId = _auth.currentUser?.uid;
       if (userId == null) {
-        throw Exception("Usuario no autenticado");
+        throw Exception("Usuario no autenticado en la app");
       }
 
       await _firestore
